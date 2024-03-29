@@ -91,6 +91,10 @@ export class PlanNodeComponent implements OnInit, DoCheck {
         }
     }
 
+    get hasMultipleChilds() {
+        return this.node.inputs && this.node.inputs.length > 1;
+    }
+
     getFormattedQuery() {
         const keyItems: Array<string> = [];
 

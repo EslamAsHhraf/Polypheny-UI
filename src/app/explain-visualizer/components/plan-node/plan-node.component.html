@@ -130,7 +130,7 @@
         </div>
 
 
-        <ul *ngIf="node.inputs && node.inputs.length > 0">
+        <ul *ngIf="node.inputs && node.inputs.length > 0" [ngClass]="{'multiple-children': hasMultipleChilds}" >
             <li *ngFor="let subNode of node.inputs">
                 <app-plan-node [plan]="plan" [node]="subNode" [viewOptions]="viewOptions"></app-plan-node>
             </li>

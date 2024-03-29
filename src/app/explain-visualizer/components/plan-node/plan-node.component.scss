@@ -9,14 +9,17 @@ ul {
   margin-top: -5px
 }
 
-ul ul::before {
+ul > li > ul::before {
   content: '';
   position: absolute;
   top: 0;
   left: 50%;
   border-left: 2px solid #c4c4c4;
-  height: 12px;
+  height: 20px;
   width: 0
+}
+ul.multiple-children::before{
+  height: 12px !important;
 }
 
 /* css fix when using different recursion */
@@ -45,7 +48,7 @@ ul li:after {
   right: 50%;
   border-top: 2px solid #c4c4c4;
   width: 50%;
-  height: 12px
+  height: 20px
 }
 
 ul li:after {
