@@ -22,6 +22,7 @@ export class NbCellComponent implements OnInit, AfterViewInit {
     @Input() isExecuting: boolean;
     @Input() mode: NbMode;
     @Input() selectedCellType: CellType; // not necessarily the type of this cell
+    @Input() selectedPresentType: string; // not necessarily the type of this cell
     @Input() namespaces: string[];
     @Input() nbLanguage: string;
     @Input() isTrusted: boolean;
@@ -31,6 +32,7 @@ export class NbCellComponent implements OnInit, AfterViewInit {
     @Output() duplicate = new EventEmitter<null>();
     @Output() execute = new EventEmitter<string>();
     @Output() changeType = new EventEmitter<Event>();
+    @Output() ChangePresent = new EventEmitter<Event>();
     @Output() delete = new EventEmitter<string>();
     @Output() selected = new EventEmitter<string>();
     @ViewChild('editor') editor: NbInputEditorComponent;
@@ -246,6 +248,7 @@ export class NbCellComponent implements OnInit, AfterViewInit {
         } else {
             this.cellType = this.cell.cell_type;
         }
+    
         this.manualExecution = this.cell.metadata.polypheny?.manual_execution;
         this.sourceHidden = this.cell.metadata.jupyter?.source_hidden;
         this.outputsHidden = this.cell.metadata.jupyter?.outputs_hidden;
